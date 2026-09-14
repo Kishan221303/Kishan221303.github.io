@@ -1,0 +1,2779 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="description"
+content="Kishan221303 — Futuristic Developer Portfolio">
+
+<title>Kishan221303 | Digital Architect</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+
+<style>
+
+/* =====================================================
+   ROOT
+===================================================== */
+
+:root{
+
+    --bg:#03040a;
+    --bg2:#070912;
+
+    --text:#f5f7ff;
+    --muted:#8991aa;
+
+    --cyan:#00f5ff;
+    --purple:#8b5cf6;
+    --pink:#ff3cac;
+
+    --glass:rgba(255,255,255,.045);
+    --border:rgba(255,255,255,.10);
+
+    --max:1200px;
+
+}
+
+
+/* =====================================================
+   RESET
+===================================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+
+    font-family:"Inter",sans-serif;
+
+    background:
+        radial-gradient(
+            circle at 10% 10%,
+            rgba(139,92,246,.15),
+            transparent 30%
+        ),
+
+        radial-gradient(
+            circle at 90% 30%,
+            rgba(0,245,255,.10),
+            transparent 30%
+        ),
+
+        var(--bg);
+
+    color:var(--text);
+
+    overflow-x:hidden;
+
+    cursor:none;
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+button{
+    font-family:inherit;
+}
+
+
+/* =====================================================
+   CUSTOM CURSOR
+===================================================== */
+
+.cursor{
+
+    position:fixed;
+
+    width:18px;
+    height:18px;
+
+    border:1px solid var(--cyan);
+
+    border-radius:50%;
+
+    pointer-events:none;
+
+    z-index:9999;
+
+    transform:translate(-50%,-50%);
+
+    transition:
+        width .2s,
+        height .2s,
+        background .2s;
+
+}
+
+.cursor-dot{
+
+    position:fixed;
+
+    width:4px;
+    height:4px;
+
+    background:var(--cyan);
+
+    border-radius:50%;
+
+    pointer-events:none;
+
+    z-index:10000;
+
+    transform:translate(-50%,-50%);
+
+}
+
+
+/* =====================================================
+   BACKGROUND GRID
+===================================================== */
+
+.grid-bg{
+
+    position:fixed;
+
+    inset:0;
+
+    pointer-events:none;
+
+    z-index:-3;
+
+    opacity:.28;
+
+    background-image:
+
+        linear-gradient(
+            rgba(255,255,255,.035) 1px,
+            transparent 1px
+        ),
+
+        linear-gradient(
+            90deg,
+            rgba(255,255,255,.035) 1px,
+            transparent 1px
+        );
+
+    background-size:60px 60px;
+
+    mask-image:
+        linear-gradient(
+            to bottom,
+            black,
+            transparent 90%
+        );
+
+}
+
+
+/* =====================================================
+   SPOTLIGHT
+===================================================== */
+
+.spotlight{
+
+    position:fixed;
+
+    width:500px;
+    height:500px;
+
+    border-radius:50%;
+
+    pointer-events:none;
+
+    z-index:-1;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(0,245,255,.07),
+            transparent 65%
+        );
+
+    transform:translate(-50%,-50%);
+
+}
+
+
+/* =====================================================
+   PARTICLES
+===================================================== */
+
+#particles{
+
+    position:fixed;
+
+    inset:0;
+
+    pointer-events:none;
+
+    z-index:-2;
+
+}
+
+.particle{
+
+    position:absolute;
+
+    width:2px;
+    height:2px;
+
+    background:var(--cyan);
+
+    border-radius:50%;
+
+    opacity:.5;
+
+    animation:
+        floatParticle
+        linear
+        infinite;
+
+}
+
+@keyframes floatParticle{
+
+    from{
+        transform:translateY(100vh);
+        opacity:0;
+    }
+
+    20%{
+        opacity:.7;
+    }
+
+    80%{
+        opacity:.7;
+    }
+
+    to{
+        transform:translateY(-10vh);
+        opacity:0;
+    }
+
+}
+
+
+/* =====================================================
+   CONTAINER
+===================================================== */
+
+.container{
+
+    width:min(var(--max),92%);
+
+    margin:auto;
+
+}
+
+
+/* =====================================================
+   NAVBAR
+===================================================== */
+
+header{
+
+    position:fixed;
+
+    top:0;
+    left:0;
+
+    width:100%;
+
+    z-index:1000;
+
+    backdrop-filter:blur(18px);
+
+    background:rgba(3,4,10,.65);
+
+    border-bottom:1px solid rgba(255,255,255,.06);
+
+}
+
+.navbar{
+
+    height:78px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+}
+
+.logo{
+
+    font-family:"Space Grotesk";
+
+    font-size:23px;
+
+    font-weight:700;
+
+    letter-spacing:-1px;
+
+}
+
+.logo span{
+
+    color:var(--cyan);
+
+}
+
+.nav-links{
+
+    display:flex;
+
+    gap:32px;
+
+    align-items:center;
+
+}
+
+.nav-links a{
+
+    color:#aeb6ca;
+
+    font-size:13px;
+
+    font-weight:600;
+
+    position:relative;
+
+}
+
+.nav-links a::after{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+    bottom:-7px;
+
+    width:0;
+    height:1px;
+
+    background:var(--cyan);
+
+    transition:.3s;
+
+}
+
+.nav-links a:hover{
+
+    color:white;
+
+}
+
+.nav-links a:hover::after{
+
+    width:100%;
+
+}
+
+.menu{
+
+    display:none;
+
+    font-size:25px;
+
+}
+
+
+/* =====================================================
+   HERO
+===================================================== */
+
+.hero{
+
+    min-height:100vh;
+
+    display:flex;
+
+    align-items:center;
+
+    padding-top:100px;
+
+}
+
+.hero-grid{
+
+    display:grid;
+
+    grid-template-columns:1.15fr .85fr;
+
+    align-items:center;
+
+    gap:70px;
+
+}
+
+.status{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:9px;
+
+    padding:8px 13px;
+
+    border:1px solid rgba(0,245,255,.20);
+
+    background:rgba(0,245,255,.045);
+
+    border-radius:30px;
+
+    font-size:11px;
+
+    color:#a8faff;
+
+    margin-bottom:25px;
+
+}
+
+.status-dot{
+
+    width:7px;
+    height:7px;
+
+    border-radius:50%;
+
+    background:#00ff88;
+
+    box-shadow:0 0 12px #00ff88;
+
+}
+
+.hero h1{
+
+    font-family:"Space Grotesk";
+
+    font-size:clamp(48px,7vw,86px);
+
+    line-height:.95;
+
+    letter-spacing:-4px;
+
+    margin-bottom:25px;
+
+}
+
+.gradient{
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--cyan),
+            var(--purple),
+            var(--pink)
+        );
+
+    -webkit-background-clip:text;
+
+    -webkit-text-fill-color:transparent;
+
+}
+
+.hero-role{
+
+    font-size:20px;
+
+    font-weight:600;
+
+    margin-bottom:20px;
+
+}
+
+.typewriter{
+
+    color:var(--cyan);
+
+}
+
+.hero-text{
+
+    color:var(--muted);
+
+    max-width:600px;
+
+    font-size:16px;
+
+    line-height:1.8;
+
+    margin-bottom:30px;
+
+}
+
+.hero-actions{
+
+    display:flex;
+
+    gap:13px;
+
+    flex-wrap:wrap;
+
+}
+
+.btn{
+
+    padding:13px 21px;
+
+    border-radius:10px;
+
+    font-size:13px;
+
+    font-weight:700;
+
+    border:1px solid var(--border);
+
+    transition:.3s;
+
+}
+
+.btn-primary{
+
+    background:
+        linear-gradient(
+            100deg,
+            var(--cyan),
+            var(--purple)
+        );
+
+    color:#02040a;
+
+    border:none;
+
+}
+
+.btn:hover{
+
+    transform:translateY(-4px);
+
+    box-shadow:
+        0 15px 40px
+        rgba(0,245,255,.12);
+
+}
+
+
+/* =====================================================
+   HERO DIGITAL CORE
+===================================================== */
+
+.core-wrapper{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+}
+
+.core{
+
+    width:350px;
+    height:350px;
+
+    position:relative;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+}
+
+.core-ring{
+
+    position:absolute;
+
+    border-radius:50%;
+
+    border:1px solid;
+
+}
+
+.ring1{
+
+    width:310px;
+    height:310px;
+
+    border-color:rgba(0,245,255,.3);
+
+    animation:spin 16s linear infinite;
+
+}
+
+.ring2{
+
+    width:240px;
+    height:240px;
+
+    border-color:rgba(139,92,246,.4);
+
+    animation:spinReverse 10s linear infinite;
+
+}
+
+.ring3{
+
+    width:170px;
+    height:170px;
+
+    border-color:rgba(255,60,172,.4);
+
+    animation:spin 7s linear infinite;
+
+}
+
+.core-center{
+
+    width:115px;
+    height:115px;
+
+    border-radius:50%;
+
+    display:flex;
+
+    justify-content:center;
+    align-items:center;
+
+    background:
+        radial-gradient(
+            circle,
+            #142d38,
+            #050912
+        );
+
+    border:1px solid rgba(0,245,255,.5);
+
+    box-shadow:
+        0 0 70px
+        rgba(0,245,255,.25);
+
+    font-family:"Space Grotesk";
+
+    font-size:30px;
+
+    font-weight:700;
+
+    color:var(--cyan);
+
+}
+
+.orbit{
+
+    position:absolute;
+
+    width:12px;
+    height:12px;
+
+    border-radius:50%;
+
+    background:var(--cyan);
+
+    box-shadow:
+        0 0 20px var(--cyan);
+
+    top:20px;
+    left:50%;
+
+    transform-origin:
+        0 155px;
+
+    animation:
+        orbit 6s linear infinite;
+
+}
+
+@keyframes spin{
+
+    to{
+        transform:rotate(360deg);
+    }
+
+}
+
+@keyframes spinReverse{
+
+    to{
+        transform:rotate(-360deg);
+    }
+
+}
+
+@keyframes orbit{
+
+    to{
+        transform:rotate(360deg);
+    }
+
+}
+
+
+/* =====================================================
+   SECTION
+===================================================== */
+
+section{
+
+    padding:120px 0;
+
+}
+
+.section-head{
+
+    margin-bottom:55px;
+
+}
+
+.eyebrow{
+
+    color:var(--cyan);
+
+    font-size:11px;
+
+    font-weight:800;
+
+    letter-spacing:3px;
+
+    text-transform:uppercase;
+
+}
+
+.section-head h2{
+
+    font-family:"Space Grotesk";
+
+    font-size:45px;
+
+    letter-spacing:-2px;
+
+    margin-top:8px;
+
+}
+
+.section-head p{
+
+    color:var(--muted);
+
+    margin-top:10px;
+
+}
+
+
+/* =====================================================
+   ABOUT
+===================================================== */
+
+.about-grid{
+
+    display:grid;
+
+    grid-template-columns:1.3fr .7fr;
+
+    gap:25px;
+
+}
+
+.glass{
+
+    background:var(--glass);
+
+    border:1px solid var(--border);
+
+    border-radius:22px;
+
+    padding:30px;
+
+    backdrop-filter:blur(12px);
+
+    transition:.4s;
+
+}
+
+.glass:hover{
+
+    border-color:
+        rgba(0,245,255,.25);
+
+    transform:translateY(-5px);
+
+}
+
+.about-main h3{
+
+    font-family:"Space Grotesk";
+
+    font-size:25px;
+
+    margin-bottom:18px;
+
+}
+
+.about-main p{
+
+    color:var(--muted);
+
+    line-height:1.9;
+
+}
+
+.about-mini{
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:15px;
+
+}
+
+.info{
+
+    padding:20px;
+
+    border:1px solid var(--border);
+
+    border-radius:16px;
+
+    background:rgba(255,255,255,.025);
+
+}
+
+.info strong{
+
+    display:block;
+
+    color:var(--cyan);
+
+    font-size:25px;
+
+    margin-bottom:4px;
+
+}
+
+.info span{
+
+    color:var(--muted);
+
+    font-size:12px;
+
+}
+
+
+/* =====================================================
+   SKILLS
+===================================================== */
+
+.skills{
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:18px;
+
+}
+
+.skill{
+
+    padding:23px;
+
+    border:1px solid var(--border);
+
+    border-radius:18px;
+
+    background:var(--glass);
+
+}
+
+.skill-top{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    margin-bottom:10px;
+
+}
+
+.skill-name{
+
+    font-weight:700;
+
+    font-size:14px;
+
+}
+
+.percent{
+
+    color:var(--cyan);
+
+    font-size:12px;
+
+}
+
+.bar{
+
+    height:5px;
+
+    background:rgba(255,255,255,.08);
+
+    border-radius:10px;
+
+    overflow:hidden;
+
+}
+
+.fill{
+
+    height:100%;
+
+    width:0;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--cyan),
+            var(--purple)
+        );
+
+    border-radius:10px;
+
+    transition:
+        width 1.5s cubic-bezier(.17,.67,.3,1);
+
+}
+
+
+/* =====================================================
+   PROJECTS
+===================================================== */
+
+.projects{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap:22px;
+
+}
+
+.project{
+
+    min-height:380px;
+
+    position:relative;
+
+    overflow:hidden;
+
+    padding:27px;
+
+    border-radius:22px;
+
+    border:1px solid var(--border);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.06),
+            rgba(255,255,255,.015)
+        );
+
+    transition:.4s;
+
+}
+
+.project::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:180px;
+    height:180px;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(0,245,255,.15),
+            transparent 70%
+        );
+
+    top:-70px;
+    right:-70px;
+
+}
+
+.project:hover{
+
+    transform:
+        translateY(-10px)
+        scale(1.01);
+
+    border-color:
+        rgba(0,245,255,.3);
+
+}
+
+.project-number{
+
+    color:rgba(255,255,255,.2);
+
+    font-family:"Space Grotesk";
+
+    font-size:40px;
+
+    font-weight:700;
+
+}
+
+.project-icon{
+
+    font-size:40px;
+
+    margin:25px 0;
+
+}
+
+.project h3{
+
+    font-family:"Space Grotesk";
+
+    font-size:22px;
+
+    margin-bottom:10px;
+
+}
+
+.project p{
+
+    color:var(--muted);
+
+    font-size:13px;
+
+    line-height:1.7;
+
+}
+
+.project-tags{
+
+    display:flex;
+
+    gap:7px;
+
+    flex-wrap:wrap;
+
+    margin-top:20px;
+
+}
+
+.tag{
+
+    padding:6px 9px;
+
+    border-radius:7px;
+
+    background:rgba(0,245,255,.06);
+
+    color:#9df9ff;
+
+    border:1px solid rgba(0,245,255,.12);
+
+    font-size:10px;
+
+}
+
+.project-link{
+
+    position:absolute;
+
+    bottom:25px;
+
+    left:27px;
+
+    color:var(--cyan);
+
+    font-size:12px;
+
+    font-weight:700;
+
+}
+
+
+/* =====================================================
+   EXPERIENCE TIMELINE
+===================================================== */
+
+.timeline{
+
+    position:relative;
+
+    max-width:850px;
+
+}
+
+.timeline::before{
+
+    content:"";
+
+    position:absolute;
+
+    left:9px;
+
+    top:0;
+    bottom:0;
+
+    width:1px;
+
+    background:
+        linear-gradient(
+            var(--cyan),
+            transparent
+        );
+
+}
+
+.timeline-item{
+
+    position:relative;
+
+    padding-left:45px;
+
+    margin-bottom:45px;
+
+}
+
+.timeline-dot{
+
+    position:absolute;
+
+    left:3px;
+    top:4px;
+
+    width:13px;
+    height:13px;
+
+    border-radius:50%;
+
+    background:var(--cyan);
+
+    box-shadow:
+        0 0 15px var(--cyan);
+
+}
+
+.timeline-date{
+
+    color:var(--cyan);
+
+    font-size:11px;
+
+    font-weight:700;
+
+    letter-spacing:1px;
+
+}
+
+.timeline-item h3{
+
+    margin:7px 0;
+
+    font-family:"Space Grotesk";
+
+    font-size:21px;
+
+}
+
+.timeline-item p{
+
+    color:var(--muted);
+
+    font-size:13px;
+
+}
+
+
+/* =====================================================
+   CONTACT
+===================================================== */
+
+.contact{
+
+    position:relative;
+
+    text-align:center;
+
+    padding:80px 30px;
+
+    border-radius:28px;
+
+    overflow:hidden;
+
+    border:1px solid var(--border);
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(139,92,246,.13),
+            transparent 65%
+        ),
+        var(--glass);
+
+}
+
+.contact h2{
+
+    font-family:"Space Grotesk";
+
+    font-size:48px;
+
+    letter-spacing:-2px;
+
+    margin-bottom:15px;
+
+}
+
+.contact p{
+
+    max-width:600px;
+
+    margin:auto;
+
+    color:var(--muted);
+
+    line-height:1.8;
+
+}
+
+.contact-buttons{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:12px;
+
+    flex-wrap:wrap;
+
+    margin-top:28px;
+
+}
+
+
+/* =====================================================
+   SOCIAL
+===================================================== */
+
+.socials{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:10px;
+
+    margin-top:30px;
+
+}
+
+.social{
+
+    width:42px;
+    height:42px;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    border:1px solid var(--border);
+
+    border-radius:50%;
+
+    font-size:13px;
+
+    transition:.3s;
+
+}
+
+.social:hover{
+
+    border-color:var(--cyan);
+
+    color:var(--cyan);
+
+    transform:
+        translateY(-5px)
+        rotate(5deg);
+
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+footer{
+
+    padding:35px 0;
+
+    text-align:center;
+
+    border-top:1px solid var(--border);
+
+    color:var(--muted);
+
+    font-size:12px;
+
+}
+
+footer span{
+
+    color:var(--cyan);
+
+}
+
+
+/* =====================================================
+   REVEAL
+===================================================== */
+
+.reveal{
+
+    opacity:0;
+
+    transform:translateY(40px);
+
+    transition:
+        opacity .8s ease,
+        transform .8s ease;
+
+}
+
+.reveal.show{
+
+    opacity:1;
+
+    transform:translateY(0);
+
+}
+
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media(max-width:900px){
+
+    .hero-grid{
+
+        grid-template-columns:1fr;
+
+        text-align:center;
+
+    }
+
+    .hero-text{
+
+        margin-left:auto;
+        margin-right:auto;
+
+    }
+
+    .hero-actions{
+
+        justify-content:center;
+
+    }
+
+    .core{
+
+        transform:scale(.8);
+
+    }
+
+    .about-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .projects{
+
+        grid-template-columns:1fr 1fr;
+
+    }
+
+}
+
+@media(max-width:650px){
+
+    body{
+
+        cursor:auto;
+
+    }
+
+    .cursor,
+    .cursor-dot{
+
+        display:none;
+
+    }
+
+    .nav-links{
+
+        position:absolute;
+
+        top:78px;
+        left:0;
+
+        width:100%;
+
+        background:#050711;
+
+        padding:25px;
+
+        flex-direction:column;
+
+        display:none;
+
+    }
+
+    .nav-links.active{
+
+        display:flex;
+
+    }
+
+    .menu{
+
+        display:block;
+
+    }
+
+    .hero h1{
+
+        letter-spacing:-2px;
+
+    }
+
+    .core{
+
+        transform:scale(.65);
+
+    }
+
+    .skills{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .projects{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .contact h2{
+
+        font-size:34px;
+
+    }
+
+    section{
+
+        padding:90px 0;
+
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     BACKGROUND
+===================================================== -->
+
+<div class="grid-bg"></div>
+
+<div class="spotlight" id="spotlight"></div>
+
+<div id="particles"></div>
+
+
+<!-- =====================================================
+     CURSOR
+===================================================== -->
+
+<div class="cursor" id="cursor"></div>
+
+<div class="cursor-dot" id="cursorDot"></div>
+
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
+
+<header>
+
+<div class="container navbar">
+
+<a href="#home" class="logo">
+    <span>K</span>ishan221303
+</a>
+
+<div class="menu" onclick="toggleMenu()">
+    ☰
+</div>
+
+<nav class="nav-links" id="navLinks">
+
+<a href="#home">Home</a>
+
+<a href="#about">About</a>
+
+<a href="#skills">Skills</a>
+
+<a href="#projects">Projects</a>
+
+<a href="#journey">Journey</a>
+
+<a href="#contact">Contact</a>
+
+</nav>
+
+</div>
+
+</header>
+
+
+<!-- =====================================================
+     HERO
+===================================================== -->
+
+<section class="hero" id="home">
+
+<div class="container hero-grid">
+
+
+<div class="reveal">
+
+<div class="status">
+
+<span class="status-dot"></span>
+
+Available for opportunities
+
+</div>
+
+
+<h1>
+
+Building
+
+<span class="gradient">
+digital
+</span>
+
+experiences.
+
+</h1>
+
+
+<div class="hero-role">
+
+I'm a
+
+<span class="typewriter" id="typewriter"></span>
+
+</div>
+
+
+<p class="hero-text">
+
+I design and build modern digital experiences
+where clean code meets bold ideas.
+Currently learning, experimenting and turning
+ideas into real-world projects.
+
+</p>
+
+
+<div class="hero-actions">
+
+<a href="#projects"
+class="btn btn-primary">
+
+Explore My Work →
+
+</a>
+
+<a href="#contact"
+class="btn">
+
+Let's Connect
+
+</a>
+
+</div>
+
+</div>
+
+<!-- PROFILE PHOTO -->
+
+<div class="profile-wrapper reveal">
+
+    <div class="profile-glow"></div>
+
+    <div class="profile-card">
+
+        <div class="profile-ring"></div>
+
+        <img
+            src="profile.jpg"
+            alt="Kishan221303 Profile Photo"
+            class="profile-photo"
+        >
+
+        <div class="profile-badge">
+            <span></span>
+            BCA STUDENT
+        </div>
+
+    </div>
+
+</div>
+
+
+</div>
+
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     ABOUT
+===================================================== -->
+
+<section id="about">
+
+<div class="container">
+
+
+<div class="section-head reveal">
+
+<div class="eyebrow">
+01 — About
+</div>
+
+<h2>
+Beyond the code.
+</h2>
+
+<p>
+A developer who enjoys creating things from scratch.
+</p>
+
+</div>
+
+
+<div class="about-grid">
+
+
+<div class="glass about-main reveal">
+
+<h3>
+Hello, I'm Kishan 👋
+</h3>
+
+<p>
+
+I'm a passionate developer focused on web development,
+programming and building practical digital products.
+
+I enjoy understanding how things work,
+experimenting with new technologies and
+transforming simple ideas into functional experiences.
+
+</p>
+
+<br>
+
+<p>
+
+My philosophy is simple:
+
+<strong>
+learn → build → break → improve → repeat.
+</strong>
+
+</p>
+
+</div>
+
+
+<div class="about-mini reveal">
+
+
+<div class="info">
+
+<strong>10+</strong>
+
+<span>
+Projects Built
+</span>
+
+</div>
+
+
+<div class="info">
+
+<strong>5+</strong>
+
+<span>
+Technologies
+</span>
+
+</div>
+
+
+<div class="info">
+
+<strong>∞</strong>
+
+<span>
+Ideas
+</span>
+
+</div>
+
+
+<div class="info">
+
+<strong>24/7</strong>
+
+<span>
+Learning Mode
+</span>
+
+</div>
+
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     SKILLS
+===================================================== -->
+
+<section id="skills">
+
+<div class="container">
+
+
+<div class="section-head reveal">
+
+<div class="eyebrow">
+02 — Skills
+</div>
+
+<h2>
+My technical arsenal.
+</h2>
+
+<p>
+Technologies I'm learning, building and experimenting with.
+</p>
+
+</div>
+
+
+<div class="skills">
+
+
+<div class="skill reveal">
+
+<div class="skill-top">
+
+<span class="skill-name">
+HTML
+</span>
+
+<span class="percent">
+95%
+</span>
+
+</div>
+
+<div class="bar">
+
+<div class="fill" data-width="95%"></div>
+
+</div>
+
+</div>
+
+
+<div class="skill reveal">
+
+<div class="skill-top">
+
+<span class="skill-name">
+CSS
+</span>
+
+<span class="percent">
+90%
+</span>
+
+</div>
+
+<div class="bar">
+
+<div class="fill" data-width="90%"></div>
+
+</div>
+
+</div>
+
+
+<div class="skill reveal">
+
+<div class="skill-top">
+
+<span class="skill-name">
+JavaScript
+</span>
+
+<span class="percent">
+82%
+</span>
+
+</div>
+
+<div class="bar">
+
+<div class="fill" data-width="82%"></div>
+
+</div>
+
+</div>
+
+
+<div class="skill reveal">
+
+<div class="skill-top">
+
+<span class="skill-name">
+Java
+</span>
+
+<span class="percent">
+78%
+</span>
+
+</div>
+
+<div class="bar">
+
+<div class="fill" data-width="78%"></div>
+
+</div>
+
+</div>
+
+
+<div class="skill reveal">
+
+<div class="skill-top">
+
+<span class="skill-name">
+C / C++
+</span>
+
+<span class="percent">
+80%
+</span>
+
+</div>
+
+<div class="bar">
+
+<div class="fill" data-width="80%"></div>
+
+</div>
+
+</div>
+
+
+<div class="skill reveal">
+
+<div class="skill-top">
+
+<span class="skill-name">
+Python
+</span>
+
+<span class="percent">
+75%
+</span>
+
+</div>
+
+<div class="bar">
+
+<div class="fill" data-width="75%"></div>
+
+</div>
+
+</div>
+
+
+<div class="skill reveal">
+
+<div class="skill-top">
+
+<span class="skill-name">
+Git / GitHub
+</span>
+
+<span class="percent">
+78%
+</span>
+
+</div>
+
+<div class="bar">
+
+<div class="fill" data-width="78%"></div>
+
+</div>
+
+</div>
+
+
+<div class="skill reveal">
+
+<div class="skill-top">
+
+<span class="skill-name">
+UI / UX
+</span>
+
+<span class="percent">
+70%
+</span>
+
+</div>
+
+<div class="bar">
+
+<div class="fill" data-width="70%"></div>
+
+</div>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     PROJECTS
+===================================================== -->
+
+<section id="projects">
+
+<div class="container">
+
+
+<div class="section-head reveal">
+
+<div class="eyebrow">
+03 — Projects
+</div>
+
+<h2>
+Things I've built.
+</h2>
+
+<p>
+Ideas turned into working products.
+</p>
+
+</div>
+
+
+<div class="projects">
+
+
+<!-- PROJECT 01 -->
+
+<div class="project reveal">
+
+<div class="project-number">
+01
+</div>
+
+<div class="project-icon">
+🛒
+</div>
+
+<h3>
+ShopKart
+</h3>
+
+<p>
+
+A complete e-commerce experience with
+products, shopping cart, checkout,
+order management and order history.
+
+</p>
+
+
+<div class="project-tags">
+
+<span class="tag">HTML</span>
+
+<span class="tag">CSS</span>
+
+<span class="tag">JavaScript</span>
+
+<span class="tag">LocalStorage</span>
+
+</div>
+
+
+<a href="#" class="project-link">
+View project →
+</a>
+
+</div>
+
+
+<!-- PROJECT 02 -->
+
+<div class="project reveal">
+
+<div class="project-number">
+02
+</div>
+
+<div class="project-icon">
+📝
+</div>
+
+<h3>
+Application Form
+</h3>
+
+<p>
+
+A desktop application form with
+input validation, clean UI and
+user-friendly interactions.
+
+</p>
+
+
+<div class="project-tags">
+
+<span class="tag">Python</span>
+
+<span class="tag">Tkinter</span>
+
+<span class="tag">GUI</span>
+
+</div>
+
+
+<a href="#" class="project-link">
+View project →
+</a>
+
+</div>
+
+
+<!-- PROJECT 03 -->
+
+<div class="project reveal">
+
+<div class="project-number">
+03
+</div>
+
+<div class="project-icon">
+🌐
+</div>
+
+<h3>
+Portfolio OS
+</h3>
+
+<p>
+
+A futuristic personal portfolio
+designed as an interactive digital
+identity rather than a traditional website.
+
+</p>
+
+
+<div class="project-tags">
+
+<span class="tag">HTML</span>
+
+<span class="tag">CSS</span>
+
+<span class="tag">JavaScript</span>
+
+<span class="tag">UI</span>
+
+</div>
+
+
+<a href="#" class="project-link">
+View project →
+</a>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     JOURNEY
+===================================================== -->
+
+<section id="journey">
+
+<div class="container">
+
+
+<div class="section-head reveal">
+
+<div class="eyebrow">
+04 — Journey
+</div>
+
+<h2>
+My learning timeline.
+</h2>
+
+<p>
+Every step adds another layer.
+</p>
+
+</div>
+
+
+<div class="timeline">
+
+
+<div class="timeline-item reveal">
+
+<div class="timeline-dot"></div>
+
+<div class="timeline-date">
+2024 — FOUNDATION
+</div>
+
+<h3>
+Started Programming
+</h3>
+
+<p>
+Started exploring programming fundamentals,
+logic building and computer science concepts.
+</p>
+
+</div>
+
+
+<div class="timeline-item reveal">
+
+<div class="timeline-dot"></div>
+
+<div class="timeline-date">
+2025 — DEVELOPMENT
+</div>
+
+<h3>
+Started Building Projects
+</h3>
+
+<p>
+Moved from theory to practical development
+and started creating real applications.
+</p>
+
+</div>
+
+
+<div class="timeline-item reveal">
+
+<div class="timeline-dot"></div>
+
+<div class="timeline-date">
+2026 — WEB
+</div>
+
+<h3>
+Building Real Websites
+</h3>
+
+<p>
+Focused on modern web development,
+responsive interfaces and real-world projects.
+</p>
+
+</div>
+
+
+<div class="timeline-item reveal">
+
+<div class="timeline-dot"></div>
+
+<div class="timeline-date">
+NEXT — LEVEL UP
+</div>
+
+<h3>
+Software Developer
+</h3>
+
+<p>
+Continuously improving my skills and preparing
+to build larger, production-ready applications.
+</p>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     CONTACT
+===================================================== -->
+
+<section id="contact">
+
+<div class="container">
+
+
+<div class="contact reveal">
+
+<div class="eyebrow">
+05 — Contact
+</div>
+
+
+<h2>
+Let's create something
+<span class="gradient">
+unforgettable.
+</span>
+</h2>
+
+
+<p>
+
+Whether you have a project idea,
+a collaboration opportunity,
+or simply want to connect —
+my inbox is open.
+
+</p>
+
+
+<div class="contact-buttons">
+
+<a
+href="mailto:your-email@example.com"
+class="btn btn-primary">
+
+✉ Send Email
+
+</a>
+
+
+<a
+href="https://github.com/Kishan221303"
+target="_blank"
+class="btn">
+
+GitHub →
+
+</a>
+
+</div>
+
+
+<div class="socials">
+
+<a href="https://github.com/Kishan221303"
+target="_blank"
+class="social">
+
+GH
+
+</a>
+
+
+<a href="#"
+class="social">
+
+in
+
+</a>
+
+
+<a href="#"
+class="social">
+
+IG
+
+</a>
+
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer>
+
+<div class="container">
+
+Designed & built by
+<span>Kishan221303</span>
+
+<br>
+
+© <span id="year"></span>
+All rights reserved.
+
+</div>
+
+</footer>
+
+
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
+
+<script>
+
+
+/* =====================================================
+   MENU
+===================================================== */
+
+function toggleMenu(){
+
+    document
+    .getElementById("navLinks")
+    .classList.toggle("active");
+
+}
+
+
+document
+.querySelectorAll(".nav-links a")
+.forEach(link => {
+
+    link.addEventListener("click", () => {
+
+        document
+        .getElementById("navLinks")
+        .classList.remove("active");
+
+    });
+
+});
+
+
+/* =====================================================
+   CURSOR
+===================================================== */
+
+const cursor =
+document.getElementById("cursor");
+
+const cursorDot =
+document.getElementById("cursorDot");
+
+const spotlight =
+document.getElementById("spotlight");
+
+
+document.addEventListener("mousemove", e => {
+
+    cursor.style.left =
+        e.clientX + "px";
+
+    cursor.style.top =
+        e.clientY + "px";
+
+    cursorDot.style.left =
+        e.clientX + "px";
+
+    cursorDot.style.top =
+        e.clientY + "px";
+
+    spotlight.style.left =
+        e.clientX + "px";
+
+    spotlight.style.top =
+        e.clientY + "px";
+
+});
+
+
+document
+.querySelectorAll("a, button")
+.forEach(el => {
+
+    el.addEventListener("mouseenter", () => {
+
+        cursor.style.width="35px";
+        cursor.style.height="35px";
+
+    });
+
+    el.addEventListener("mouseleave", () => {
+
+        cursor.style.width="18px";
+        cursor.style.height="18px";
+
+    });
+
+});
+
+
+/* =====================================================
+   TYPEWRITER
+===================================================== */
+
+const words = [
+
+    "Web Developer.",
+    "Problem Solver.",
+    "Java Programmer.",
+    "Creative Builder.",
+    "Future Software Engineer."
+
+];
+
+let wordIndex = 0;
+
+let charIndex = 0;
+
+let deleting = false;
+
+const typewriter =
+document.getElementById("typewriter");
+
+
+function type(){
+
+    const word =
+        words[wordIndex];
+
+    if(!deleting){
+
+        typewriter.textContent =
+            word.substring(
+                0,
+                charIndex++
+            );
+
+        if(charIndex > word.length){
+
+            deleting = true;
+
+            setTimeout(type,1200);
+
+            return;
+
+        }
+
+    }else{
+
+        typewriter.textContent =
+            word.substring(
+                0,
+                charIndex--
+            );
+
+        if(charIndex === 0){
+
+            deleting = false;
+
+            wordIndex =
+                (wordIndex + 1)
+                % words.length;
+
+        }
+
+    }
+
+    setTimeout(
+        type,
+        deleting ? 45 : 85
+    );
+
+}
+
+type();
+
+
+/* =====================================================
+   PARTICLES
+===================================================== */
+
+const particleBox =
+document.getElementById("particles");
+
+
+for(let i=0;i<70;i++){
+
+    const particle =
+        document.createElement("div");
+
+    particle.className =
+        "particle";
+
+    particle.style.left =
+        Math.random()*100 + "%";
+
+    particle.style.animationDuration =
+        (5 + Math.random()*10) + "s";
+
+    particle.style.animationDelay =
+        Math.random()*8 + "s";
+
+    particle.style.opacity =
+        Math.random();
+
+    particleBox.appendChild(
+        particle
+    );
+
+}
+
+
+/* =====================================================
+   SCROLL REVEAL
+===================================================== */
+
+const reveals =
+document.querySelectorAll(".reveal");
+
+
+const observer =
+new IntersectionObserver(
+
+    entries => {
+
+        entries.forEach(entry => {
+
+            if(entry.isIntersecting){
+
+                entry.target
+                    .classList
+                    .add("show");
+
+            }
+
+        });
+
+    },
+
+    {
+        threshold:.12
+    }
+
+);
+
+
+reveals.forEach(el =>
+    observer.observe(el)
+);
+
+
+/* =====================================================
+   SKILL BARS
+===================================================== */
+
+const skillBars =
+document.querySelectorAll(".fill");
+
+
+const skillObserver =
+new IntersectionObserver(
+
+    entries => {
+
+        entries.forEach(entry => {
+
+            if(entry.isIntersecting){
+
+                const width =
+                    entry.target
+                    .dataset.width;
+
+                entry.target.style.width =
+                    width;
+
+            }
+
+        });
+
+    },
+
+    {
+        threshold:.5
+    }
+
+);
+
+
+skillBars.forEach(bar =>
+    skillObserver.observe(bar)
+);
+
+
+/* =====================================================
+   YEAR
+===================================================== */
+
+document.getElementById("year")
+.textContent =
+new Date().getFullYear();
+
+
+/* =====================================================
+   MAGNETIC PROJECT EFFECT
+===================================================== */
+
+document
+.querySelectorAll(".project")
+.forEach(card => {
+
+    card.addEventListener(
+        "mousemove",
+        e => {
+
+            const rect =
+                card.getBoundingClientRect();
+
+            const x =
+                e.clientX - rect.left;
+
+            const y =
+                e.clientY - rect.top;
+
+            const centerX =
+                rect.width / 2;
+
+            const centerY =
+                rect.height / 2;
+
+            const rotateX =
+                (y-centerY)/20;
+
+            const rotateY =
+                (centerX-x)/20;
+
+            card.style.transform =
+                `perspective(700px)
+                 rotateX(${rotateX}deg)
+                 rotateY(${rotateY}deg)
+                 translateY(-8px)`;
+
+        }
+    );
+
+
+    card.addEventListener(
+        "mouseleave",
+        () => {
+
+            card.style.transform =
+                "";
+
+        }
+    );
+
+});
+
+
+</script>
+
+
+</body>
+</html>
